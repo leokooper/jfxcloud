@@ -10,26 +10,29 @@ public class DbConnect {
 
     }
 
+
     public static DbConnect getInstance(){
 
         return new DbConnect();
     }
 
     public Connection getConnection(){
-        String con_string = "jdbc:mysql://localhost:3306/jfxcloud_db" + "user=root&password=12345678";
 
+        String URL = "jdbc:mysql://localhost:3306/jfxcloud_db?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+        String LOGIN = "root";
+        String PASSWORD = "12345678";
 
         Connection connection = null;
+
         try {
-            Class.forName("com.mysql.jdbc.Driver").newInstance();
-            connection = DriverManager.getConnection(con_string);
-        } catch (SQLException e) {
-            e.printStackTrace();
+            //FabricMySQLDriver driver = new FabricMySQLDriver();
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            try {
+                connection = DriverManager.getConnection(URL, LOGIN, PASSWORD);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-        } catch (InstantiationException e) {
             e.printStackTrace();
         }
 

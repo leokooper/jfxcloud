@@ -30,17 +30,18 @@ public class SignupPaneController implements Initializable {
 
     @FXML
     void signup(MouseEvent event) {
+
         Connection connection = DbConnect.getInstance().getConnection();
 
         try {
-
             String username = tf_username.getText();
             String email = tf_email.getText();
             String password = pf_password.getText();
 
             Statement statement = connection.createStatement();
 
-            int status = statement.executeUpdate("INSERT INTO USERS (username, email, password) VALUES('"+ username +"','"+ email +"','"+ password +"')");
+            int status = statement.executeUpdate("INSERT INTO users (username, email, password)"
+                    + " VALUES('"+username+"','"+email+"','"+password+"')");
 
             if (status > 0) {
                 System.out.println("user registered");
