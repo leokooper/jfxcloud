@@ -29,10 +29,30 @@ public class SignupPaneController implements Initializable {
     @FXML
     private PasswordField pf_password;
 
+    double x = 0;
+    double y = 0;
+
+    @FXML
+    void pressed(MouseEvent event) {
+        x = event.getSceneX();
+        y = event.getSceneY();
+    }
+
+    @FXML
+    void dragged(MouseEvent event) {
+        Node node = (Node) event.getSource();
+
+        Stage stage = (Stage) node.getScene().getWindow();
+
+        stage.setX(event.getScreenX() - x);
+        stage.setY(event.getScreenY() - y);
+    }
+
+
     @FXML
     void login(MouseEvent event) throws IOException {
 
-        Parent root = FXMLLoader.load(getClass().getClassLoader().getResource("loginPane.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/loginPane.fxml"));
 
         Node node = (Node) event.getSource();
 

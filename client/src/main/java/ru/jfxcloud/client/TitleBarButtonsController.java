@@ -28,8 +28,9 @@ public class TitleBarButtonsController implements Initializable {
 
         Stage stage = (Stage) node.getScene().getWindow();
 
-        stage.setFullScreenExitHint("  ");
-        stage.setMaximized(true);
+        //stage.setFullScreenExitHint("  ");
+
+        stage.setFullScreen(true);
 
     }
 
