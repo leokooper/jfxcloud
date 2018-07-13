@@ -23,11 +23,6 @@
                <children>
                   <VBox style="-fx-background-color: #fe4451;" HBox.hgrow="ALWAYS" />
                   <VBox alignment="TOP_RIGHT" onMouseDragged="#dragged" onMousePressed="#pressed" style="-fx-background-color: white;" HBox.hgrow="ALWAYS">
-                  <!--
-                      <children>
-                          <fx:include source="titleBarButtons.fxml" />
-                      </children>
-                   -->
                   </VBox>
                </children>
             </HBox>
